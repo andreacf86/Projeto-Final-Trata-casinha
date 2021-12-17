@@ -17,8 +17,10 @@ const getAll = async (req, res) => {
 
 const getBairro = async (req, res) => {
   try {
-    const bairroEncontrado = Users.bairro.toString().includes(bairroEncontrado);
-    const users = await Users.query.bairro;
+    const bairroEncontrado = await Users.find({
+      bairro: new RegExp(req.query.bairro,"i")//ignorar case
+    })
+    //const users = await Users.query.bairro;
     res.status(200).json(bairroEncontrado);
   } catch (error) {
     res.status(500).json({
@@ -29,13 +31,15 @@ const getBairro = async (req, res) => {
 
 const getTelhado = async (req, res) => {
   try {
-    const usersTelhado = await Users.query.telhado;
-    if (usersTelhado == true) {
+    const usersTelhado = await Users.find({
+      telhado: true
+    });
+    
       res.status(200).json({
         usersTelhado,
         message: "Usuários que tem problemas de telhado",
       });
-    }
+    
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -45,14 +49,15 @@ const getTelhado = async (req, res) => {
 
 const getReforma = async (req, res) => {
   try {
-    const usersReforma = await Users.query.reformaBanheiro;
-    if (usersReforma == true) {
+    const usersReforma = await Users.find({
+      reformaBanheiro: true
+    });
+    
       res.status(200).json({
         usersReforma,
         message: "Usuários que precisam de reforma no banheiro",
       });
-    }
-  } catch (error) {
+      } catch (error) {
     res.status(500).json({
       message: error.message,
     });
@@ -61,7 +66,7 @@ const getReforma = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const user = new Users ({
+    const user = new Users({
       name: req.body.name,
       profissao: req.body.profissao,
       idade: req.body.idade,
@@ -85,7 +90,50 @@ const createUser = async (req, res) => {
   }
 };
 
-//const updateUser 
+const updateUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const findUser = await Users.findById(id);
+
+    if (findUser) {
+      findUser.name = req.body.name || findUser.name;
+      findUser.profissao = req.body.profissao || findUser.profissao;
+      findUser.idade = req.body.idade || findUser.idade;
+      findUser.bairro = req.body.bairro || findUser.bairro;
+      findUser.telefone = req.body.telefone || findUser.telefone;
+      findUser.telhado = req.body.telhado || findUser.telhado;
+      findUser.reformaBanheiro =  req.body.reformabanheiro || findUser.reformabanheiro;
+    }
+
+    const savedUser = await findUser.save();
+
+    res.status(200).json({
+      savedUser,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+const deleteUser = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const findUser = await Users.findById(id);
+
+    await findUser.delete();
+
+    res.status(200).json({
+      message: `Usuário ${findUser.name} deletado com sucesso!`,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+//const updateUser
 
 module.exports = {
   getAll,
@@ -93,4 +141,6 @@ module.exports = {
   getTelhado,
   createUser,
   getReforma,
+  updateUser,
+  deleteUser,
 };

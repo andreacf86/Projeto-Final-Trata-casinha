@@ -1,19 +1,4 @@
 const mongoose = require("mongoose");
-const express = require("express");
-const cors = require("cors");
-require('dotenv-safe').config()
-const app = express();
-const db = require("../database/mongoConfig");
-const projetoFinalRotas = require("../routes/projetofinalRotas");
-
-app.use(cors());
-app.use(express.json());
-app.use("/artista",projetoFinalRotas );
-
-db.connect;
-module.exports = app;
-
-
 
 
 const MONGODB_URI =

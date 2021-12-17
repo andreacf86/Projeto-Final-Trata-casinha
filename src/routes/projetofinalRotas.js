@@ -7,6 +7,6 @@ router.get("/bairro", controller.getBairro);
 router.get("/reforma", controller.getReforma);
 router.get("/telhado", controller.getTelhado);
 router.post("/cadastro", controller.createUser);
-router.patch("/")
-router.delete("/")
+router.patch("/atualização/:id", controller.updateUser)
+router.delete("/delete/:id", controller.deleteUser)
 module.exports = router;
