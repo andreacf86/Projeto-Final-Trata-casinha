@@ -228,7 +228,7 @@ MONGODB_URL = URL do `MongoDb Atlas` Banco de dados orientado a documentos e int
 
 <p align="justify">Meu namorado, Alvaro, que me apoiou desde o começo e é desenvolvedor. Ele acredita mais em mim do que eu mesma: foi meu amparo psicológico e amoroso nos momentos de ansiedade e estresse com o curso, além de ser muito compreensivo e paciente.
 
-<p align="justify">os meus pais que sempre serão meu porto seguro, meu alicerce, minha base de valores que levo para minha vida: sempre ir buscar o que quero e fazer o meu melhor. Espero que eles estejam orgulhosos.
+<p align="justify">Aos meus pais que sempre serão meu porto seguro, meu alicerce, minha base de valores que levo para minha vida: sempre ir buscar o que quero e fazer o meu melhor. Espero que eles estejam orgulhosos.
 <br>
 
 <p align="justify">Às minhas amigas e amigos, que por um tempo renunciei encontros por conta das aulas, trabalho e situação financeira, mesmo assim torcem sempre por mim e me querem bem. Especialmente para:
