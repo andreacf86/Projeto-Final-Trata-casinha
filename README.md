@@ -251,7 +251,7 @@ MONGODB_URL = URL do `MongoDb Atlas` Banco de dados orientado a documentos e int
 
 # Sobre a autora
 
-<img src="./assets\perfil.jpg" />
+<img src="./assets\perfil.jpg" width="200"/>
 
 ### Links para me encontrarem por aí!
 
