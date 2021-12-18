@@ -1,4 +1,4 @@
-const Users = require("../models/projetoFinalSchema");
+const Users = require("../models/TrataCasinhaSchema");
 const mongoose = require("mongoose");
 
 const getAll = async (req, res) => {
@@ -18,9 +18,9 @@ const getAll = async (req, res) => {
 const getBairro = async (req, res) => {
   try {
     const bairroEncontrado = await Users.find({
-      bairro: new RegExp(req.query.bairro,"i")//ignorar case
-    })
-    //const users = await Users.query.bairro;
+      bairro: new RegExp(req.query.bairro, "i"), //ignorar case
+    });
+    //bairro era a chave bairro(meu schema): (vai ter um objeto e um valor) Uma expressao regular (super filtro)e a requisição do front req.query.bairro, ignorar o  case(maiuscula e minuscula)
     res.status(200).json(bairroEncontrado);
   } catch (error) {
     res.status(500).json({
@@ -32,14 +32,13 @@ const getBairro = async (req, res) => {
 const getTelhado = async (req, res) => {
   try {
     const usersTelhado = await Users.find({
-      telhado: true
+      telhado: true,
     });
-    
-      res.status(200).json({
-        usersTelhado,
-        message: "Usuários que tem problemas de telhado",
-      });
-    
+
+    res.status(200).json({
+      usersTelhado,
+      message: "Usuários que tem problemas de telhado",
+    });
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -50,14 +49,14 @@ const getTelhado = async (req, res) => {
 const getReforma = async (req, res) => {
   try {
     const usersReforma = await Users.find({
-      reformaBanheiro: true
+      reformaBanheiro: true, //
     });
-    
-      res.status(200).json({
-        usersReforma,
-        message: "Usuários que precisam de reforma no banheiro",
-      });
-      } catch (error) {
+
+    res.status(200).json({
+      usersReforma,
+      message: "Usuários que precisam de reforma no banheiro",
+    });
+  } catch (error) {
     res.status(500).json({
       message: error.message,
     });
@@ -102,7 +101,8 @@ const updateUser = async (req, res) => {
       findUser.bairro = req.body.bairro || findUser.bairro;
       findUser.telefone = req.body.telefone || findUser.telefone;
       findUser.telhado = req.body.telhado || findUser.telhado;
-      findUser.reformaBanheiro =  req.body.reformabanheiro || findUser.reformabanheiro;
+      findUser.reformaBanheiro =
+        req.body.reformabanheiro || findUser.reformabanheiro;
     }
 
     const savedUser = await findUser.save();

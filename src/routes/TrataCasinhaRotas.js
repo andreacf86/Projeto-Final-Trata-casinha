@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../controller/projetoFinalController");
+const controller = require("../controller/TrataCasinhaController");
 
 router.get("/all", controller.getAll);
 router.get("/bairro", controller.getBairro);

@@ -3,7 +3,7 @@ const express = require("express"); //faz a ligação  http crud
 const cors = require("cors"); //não dar conflito na api
 const db = require("./database/mongoConfig");
 const app = express(); //ele chama o express
-const projetoRoutes = require("./routes/projetofinalRotas");
+const projetoRoutes = require("./routes/TrataCasinhaRotas");
 db.connect();
 app.use(express.json()); //substitui o bodyparse
 app.use(cors()); //usar
