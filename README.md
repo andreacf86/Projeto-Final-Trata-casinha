@@ -34,10 +34,9 @@ API desenvolvida como Projeto Final para a conclusão do curso de Backend [{Repr
 
 ## ⚙️ Funcionalidades/Objetivos
 
-- Cadastro dos autores e seus livros para maior visibilidade;
-- Disponibilidade dos livros gratuitamente para acesso dos usuários;
-- Avaliação dos livros através de like ou dislike e comentários dos usuários;
-- Simplificar a vida dos escritores independentes e dos usuários;
+- Cadastro dos moradores ;
+- Disponibilidade de dados das patologias para acesso de outros usuários;
+- Facilitar entender quais os problemas as comunidades tem para que haja estudos e planejamento para melhorias dessas moradias
 
 <br>
 
